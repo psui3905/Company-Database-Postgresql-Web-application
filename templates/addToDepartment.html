@@ -1,0 +1,34 @@
+{% include 'top.html' %}
+<div class="content">
+    <div class="container">
+        <h1 class="title">Recruite</h1>
+        <h2>Department: {{department}}</h2>
+        <table class="styled">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Name  </th>
+                    <th> Recruite <br> (Click to recruite) </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dev in add employee %}
+                    <tr>
+                        <td><a href="{{ url_for('device', deviceid=dev[0]) }}">{{ dev[0] }}</a></td>
+                        <td>{{ dev[1] }}</td>
+                        {% if dev[1] %}
+                            <td>
+                                <a href="{{url_for('recruite', empid=empid, name=dev[0], model=model, department=department, manufacturer=manufacturer)}}">
+                                    <div class="revoke-btn"></div>
+                                </a>
+                            </td>
+                        {% else %}
+                            <td> </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% include 'bottom.html' %}

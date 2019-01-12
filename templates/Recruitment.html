@@ -1,0 +1,29 @@
+{% include 'top.html' %}
+<div class="content">
+    <div class="container">
+        <h1 class="title">Recruitment</h1>
+
+        <table class="styled">
+            <thead>
+                <tr>
+                    <th>Empid</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>DOB</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for model in department_models %}
+                    <tr class="clickable-tr" data-href="{{ url_for('FreeEmployee', empid=employee[0], name=employee[1], Address=employee[2], DOB=employee[3] )}}">
+                        <td>{{ employee[0] }}</td>
+                        <td>{{ employee[1] }}</td>
+                        <td>{{ employee[2] }}</td>
+                        <td>{{ employee[3] }}</td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% include 'bottom.html' %}
